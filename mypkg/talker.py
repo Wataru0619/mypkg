@@ -1,14 +1,14 @@
 import rclpy
 from rclpy.node import Node
-from person_msgs.srv import Query
+from std_msgs.msg import Int16
 
 class Talker(Node):
     def __init__(self):
-        supper().__init__("talker")
+        super().__init__("talker")
         self.pub = self.create_publisher(Int16, "countup", 10)
         self.create_timer(0.5, self.cb)
         self.n = 0
-    def cd(self):
+    def cb(self):
         msg = Int16()
         msg.data = self.n
         self.pub.publish(msg)
